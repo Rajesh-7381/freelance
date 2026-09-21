@@ -1,4 +1,5 @@
 import * as XLSX from 'xlsx'
+import { loadProjects } from './googleSheet'
 
 function sheetRows(workbook, name) {
   const sheet = workbook.Sheets[name]
@@ -46,6 +47,19 @@ export async function loadPortfolio() {
   const workbook = XLSX.read(await response.arrayBuffer(), { type: 'array' })
   const profile = toObject(sheetRows(workbook, 'profile'))
 
+  let projects = []
+  let projectsSource = 'none'
+  let projectsError = ''
+
+  try {
+    const loaded = await loadProjects()
+    projects = loaded.projects
+    projectsSource = loaded.source
+    projectsError = loaded.error || ''
+  } catch (error) {
+    projectsError = error.message
+  }
+
   return {
     profile,
     nav: sheetRows(workbook, 'nav').map((row) => ({
@@ -63,13 +77,9 @@ export async function loadPortfolio() {
       icon: String(row.icon ?? '').trim(),
     })),
     services: groupServices(sheetRows(workbook, 'services')),
-    projects: sheetRows(workbook, 'projects').map((row) => ({
-      title: String(row.title ?? '').trim(),
-      status: String(row.status ?? '').trim(),
-      image: String(row.image ?? '').trim(),
-      github: String(row.github ?? '').trim(),
-      preview: String(row.preview ?? '').trim(),
-    })),
+    projects,
+    projectsSource,
+    projectsError,
     credits: sheetRows(workbook, 'credits').map((row) => ({
       desc: String(row.desc ?? '').trim(),
       name: String(row.name ?? '').trim(),

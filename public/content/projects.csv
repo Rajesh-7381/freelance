@@ -1,0 +1,5 @@
+title,status,image,github,preview,description,tech
+Project One,Deployed,https://placehold.co/600x400/1a1a1a/ffffff?text=Project+One,https://github.com,#!,Replace this CSV with a download from your Google Sheet.,React
+Project Two,On Development,https://placehold.co/600x400/1a1a1a/ffffff?text=Project+Two,https://github.com,#!,File → Download → CSV in Google Sheets. Save as public/content/projects.csv.,Vue
+Project Three,Contributor,https://placehold.co/600x400/1a1a1a/ffffff?text=Project+Three,https://github.com,#!,Keep the first row as column headers.,TypeScript
+Project Four,Deployed,https://placehold.co/600x400/1a1a1a/ffffff?text=Project+Four,https://github.com,#!,Refresh the site after saving the file.,Next.js

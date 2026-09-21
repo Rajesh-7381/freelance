@@ -9,9 +9,6 @@ export default function Contact({ profile }) {
     setError('')
     const form = event.currentTarget
     const data = new FormData(form)
-    const name = String(data.get('from_name') || '')
-    const email = String(data.get('reply_to') || '')
-    const message = String(data.get('message') || '')
 
     if (profile.form_endpoint) {
       try {
@@ -29,9 +26,6 @@ export default function Contact({ profile }) {
       return
     }
 
-    const subject = encodeURIComponent(`Portfolio message from ${name}`)
-    const body = encodeURIComponent(`${message}\n\nFrom: ${name} <${email}>`)
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
     form.reset()
     setSent(true)
   }

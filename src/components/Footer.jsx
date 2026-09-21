@@ -17,8 +17,9 @@ export default function Footer({ profile, social, credits }) {
           ))}
         </div>
         <p className="copyright">
-          Copyright © {year} {profile.copyright_name}. All rights reserved
-          {profile.copyright_credit ? ` by ${profile.copyright_credit}` : ''}.
+          {`Copyright © ${year} ${profile.copyright_name}. All rights reserved${
+            profile.copyright_credit ? ` by ${profile.copyright_credit}` : ''
+          }.`}
           {profile.distributed_by ? (
             <>
               {' '}

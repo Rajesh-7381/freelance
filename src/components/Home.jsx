@@ -29,7 +29,7 @@ function Bio({ text, highlight }) {
 }
 
 export default function Home({ profile, social, skills, services }) {
-  const titleLines = String(profile.title || '').split('\\n')
+  const titleLines = String(profile.title || '').split(/\r?\n|\\n/)
   const marquee = [...skills, ...skills]
 
   return (
