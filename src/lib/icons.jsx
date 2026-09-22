@@ -50,9 +50,83 @@ export function Icon({ name, className = '' }) {
         <circle cx="5" cy="19" r="2" />
       </>
     ),
+    backend: (
+      <>
+        <rect width="20" height="8" x="2" y="2" rx="2" />
+        <rect width="20" height="8" x="2" y="14" rx="2" />
+        <path d="M6 6h.01" />
+        <path d="M6 18h.01" />
+      </>
+    ),
+    ai: (
+      <>
+        <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+        <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+        <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
+      </>
+    ),
+    api: (
+      <>
+        <path d="M10 2v8" />
+        <path d="M14 2v8" />
+        <rect width="18" height="12" x="3" y="10" rx="2" />
+      </>
+    ),
+    shop: (
+      <>
+        <circle cx="8" cy="21" r="1" />
+        <circle cx="19" cy="21" r="1" />
+        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+      </>
+    ),
+    booking: (
+      <>
+        <path d="M8 2v4" />
+        <path d="M16 2v4" />
+        <rect width="18" height="18" x="3" y="4" rx="2" />
+        <path d="M3 10h18" />
+      </>
+    ),
+    delivery: (
+      <>
+        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+        <path d="M15 18H9" />
+        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+        <circle cx="17" cy="18" r="2" />
+        <circle cx="7" cy="18" r="2" />
+      </>
+    ),
+    business: (
+      <>
+        <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        <rect width="20" height="14" x="2" y="6" rx="2" />
+      </>
+    ),
+    check: (
+      <path d="M20 6 9 17l-5-5" />
+    ),
+    person: (
+      <>
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
+      </>
+    ),
   }
 
-  const stroked = name === 'web' || name === 'mobile' || name === 'design'
+  const stroked = [
+    'web',
+    'mobile',
+    'design',
+    'backend',
+    'ai',
+    'api',
+    'shop',
+    'booking',
+    'delivery',
+    'business',
+    'check',
+    'person',
+  ].includes(name)
 
   return (
     <svg

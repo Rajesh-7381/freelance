@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react'
 import { loadPortfolio } from './lib/loadPortfolio'
 import Nav from './components/Nav'
-import Home from './components/Home'
-import Projects from './components/Projects'
+import Hero from './components/Hero'
+import CardGrid from './components/CardGrid'
+import Team from './components/Team'
+import Process from './components/Process'
+import WhyUs from './components/WhyUs'
+import Cta from './components/Cta'
+// import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './index.css'
@@ -26,7 +31,7 @@ export default function App() {
   if (error) {
     return (
       <main className="status-screen">
-        <p>Could not load portfolio data from Excel.</p>
+        <p>Could not load site data from Excel.</p>
         <p>{error}</p>
         <p>Put your file at public/content/portfolio.xlsx and refresh.</p>
       </main>
@@ -36,20 +41,22 @@ export default function App() {
   if (!data) {
     return (
       <main className="status-screen">
-        <p>Loading portfolio…</p>
+        <p>Loading…</p>
       </main>
     )
   }
 
   return (
     <>
-      <Nav items={data.nav} />
-      <Home
-        profile={data.profile}
-        social={data.social}
-        skills={data.skills}
-        services={data.services}
-      />
+      <Nav logo={data.profile.logo || data.profile.name} items={data.nav} />
+      <Hero profile={data.profile} />
+      <CardGrid id="services" heading={data.profile.services_heading} items={data.services} />
+      <CardGrid id="builds" heading={data.profile.builds_heading} items={data.builds} />
+      <Team heading={data.profile.team_heading} people={data.team} />
+      <Process heading={data.profile.process_heading} steps={data.process} />
+      <WhyUs heading={data.profile.why_heading} items={data.why} />
+      <Cta profile={data.profile} />
+      {/*
       <Projects
         profile={data.profile}
         projects={data.projects}
@@ -64,6 +71,7 @@ export default function App() {
           }))
         }
       />
+      */}
       <Contact profile={data.profile} />
       <Footer profile={data.profile} social={data.social} credits={data.credits} />
     </>

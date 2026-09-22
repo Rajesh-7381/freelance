@@ -38,9 +38,16 @@ export default function Contact({ profile }) {
         <div className="contact-grid">
           <div className="contact-copy">
             <p>{profile.contact_text}</p>
-            <p>
-              Location: <span>{profile.location}</span>
-            </p>
+            {profile.location ? (
+              <p>
+                Location: <span>{profile.location}</span>
+              </p>
+            ) : null}
+            {profile.mobile ? (
+              <p>
+                Mobile: <span>{profile.mobile}</span>
+              </p>
+            ) : null}
           </div>
           <div>
             {sent ? (
