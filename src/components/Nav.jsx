@@ -35,8 +35,21 @@ export default function Nav({ logo, items }) {
   return (
     <header className={`site-header${scrolled ? ' scrolling' : ''}`}>
       <div className="wrap header-inner">
-        <a href="#home" className="logo" onClick={(event) => goTo(event, '#home')}>
-          {logo}
+        <a
+          href="#home"
+          className="logo"
+          onClick={(event) => goTo(event, '#home')}
+        >
+          <img
+            src="/svg/WhatsApp_Image_2026-09-20_at_3.20.00_PM-removebg-preview.png"
+            alt="Studio"
+            style={{
+              width: '120px',
+              height: '120px',
+              objectFit: 'contain',
+              background: '#101010'
+            }}
+          />
         </a>
         <nav>
           <ul>

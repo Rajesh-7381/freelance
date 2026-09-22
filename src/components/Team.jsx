@@ -4,7 +4,7 @@ export default function Team({ heading, people }) {
   return (
     <section id="team" className="band">
       <div className="wrap">
-        <h2>{heading}</h2>
+        <h2>THE MINDS</h2>
         <div className="team-grid">
           {people.map((person) => (
             <article key={person.name} className="team-card">
