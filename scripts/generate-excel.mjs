@@ -32,7 +32,7 @@ const sheets = [
     { key: 'hero_cta', value: 'Start a Project' },
     { key: 'services_heading', value: 'SERVICES' },
     { key: 'builds_heading', value: 'WHAT WE CAN BUILD' },
-    { key: 'team_heading', value: 'OUR TEAM' },
+    { key: 'team_heading', value: 'THE MINDS' },
     { key: 'process_heading', value: 'HOW WE WORK' },
     { key: 'why_heading', value: 'WHY US' },
     { key: 'cta_title', value: 'HAVE AN IDEA?' },
